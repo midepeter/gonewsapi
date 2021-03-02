@@ -1,2 +1,2 @@
 # gonewsapi
-This is an golang wrapper for the news API 
+This is a golang wrapper for the news API 
