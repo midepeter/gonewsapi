@@ -7,7 +7,7 @@ type Response struct {
 }
 
 type Article struct {
-	Source      Source `json:"source"`
+	Source      source `json:"source"`
 	Author      string `json:"author"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
@@ -16,7 +16,7 @@ type Article struct {
 	Content     string `json:"content"`
 }
 
-type Source struct {
+type source struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
