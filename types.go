@@ -1,5 +1,9 @@
 package gonewsapi
 
+import (
+	"time"
+)
+
 type Response struct {
 	Status       string    `json:"status"`
 	TotalResults int       `json:"totalResults"`
@@ -7,16 +11,17 @@ type Response struct {
 }
 
 type Article struct {
-	Source      source `json:"source"`
-	Author      string `json:"author"`
-	Title       string `json:"title"`
-	Description string `json:"description"`
-	Url         string `json:"url"`
-	PublishedAt string `json:"publishedAt"`
-	Content     string `json:"content"`
+	Source      ArticleSource `json:"source"`
+	Author      string        `json:"author"`
+	Title       string        `json:"title"`
+	Description string        `json:"description"`
+	Url         string        `json:"url"`
+	UrlToImage  string        `json:"urlToImage"`
+	PublishedAt time.Time     `json:"publishedAt"`
+	Content     string        `json:"content"`
 }
 
-type source struct {
+type ArticleSource struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
 }
