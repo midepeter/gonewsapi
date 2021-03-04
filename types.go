@@ -17,6 +17,6 @@ type Article struct {
 }
 
 type source struct {
-	ID   int    `json:"id"`
+	ID   string `json:"id"`
 	Name string `json:"name"`
 }
