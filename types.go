@@ -13,10 +13,10 @@ type Article struct {
 	Description string `json:"description"`
 	Url         string `json:"url"`
 	PublishedAt string `json:"publishedAt"`
-	Content     string `json:"content"`
+	Content     string `jsoncd :"content"`
 }
 
 type source struct {
-	ID   string `json:"id"`
+	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
