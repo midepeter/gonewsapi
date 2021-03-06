@@ -34,6 +34,7 @@ func (n *NewsApiClient) GetHeadlines(args []string) (*Response, error) {
 		return nil, err
 	}
 
+	fmt.Println(endpoint)
 	return getHeadlines, nil
 }
 
