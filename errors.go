@@ -16,6 +16,10 @@ func (e AuthorizationError) Error() string {
 	return e.ErrString
 }
 
+//not argument error
+
+var ArgumentErr = errors.New("No argument was found")
+
 func errStringHelper(statusCode int, msg string, errBody *[]byte) string {
 	var buf bytes.Buffer
 	buf.WriteString(strconv.Itoa(statusCode))
