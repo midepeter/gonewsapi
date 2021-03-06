@@ -28,7 +28,7 @@ func (n *NewsApiClient) GetHeadlines(args []string) (*Response, error) {
 	}
 
 	getHeadlines := &Response{}
-	endpoint := BuildUrl(fmt.Sprintf("%s/%s", baseURL, "top-headlines?"), args...)
+	endpoint := BuildUrl(fmt.Sprintf("%s%s", baseURL, "top-headlines?"), args...)
 	err := n.makeRequest("GET", endpoint, nil, nil, getHeadlines)
 	if err != nil {
 		return nil, RequestErr
