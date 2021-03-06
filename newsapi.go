@@ -22,20 +22,19 @@ func BuildUrl(base string, args ...string) (endpoint string) {
 	return u
 }
 
-func (n *NewsApiClient) GetHeadlines(args []string) (*Response, error) {
+func (n *NewsApiClient) GetHeadlines(args []string) (*Response, error, string) {
 	if len(args) == 0 {
-		return nil, ArgumentErr
+		return nil, ArgumentErr, "error"
 	}
 
 	getHeadlines := &Response{}
 	endpoint := BuildUrl(fmt.Sprintf("%s/%s", baseURL, "top-headlines"), args...)
 	err := n.makeRequest("GET", endpoint, nil, nil, getHeadlines)
 	if err != nil {
-		return nil, err
+		return nil, err, "error"
 	}
 
-	fmt.Println(endpoint)
-	return getHeadlines, nil
+	return getHeadlines, nil, endpoint
 }
 
 func (n *NewsApiClient) GetEverything(args []string) (*Response, error) {
