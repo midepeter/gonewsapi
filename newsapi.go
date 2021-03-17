@@ -6,7 +6,7 @@ import (
 )
 
 var baseURL = "http://newsapi.org/v2/"
-var API_KEYS = "45537dd2a5f342879da141829ce12615"
+var API_KEYS = ""
 
 func BuildUrl(base string, args ...string) (endpoint string) {
 	var params string
@@ -42,11 +42,26 @@ func (n *NewsApiClient) GetEverything(args []string) (*Response, error) {
 		return nil, ArgumentErr
 	}
 	getEverything := &Response{}
-	endpoint := BuildUrl(fmt.Sprintf("%s/%s", baseURL, "everything"), args...)
+	endpoint := BuildUrl(fmt.Sprintf("%s%s", baseURL, "everything?"), args...)
 	err := n.makeRequest("GET", endpoint, nil, nil, getEverything)
 	if err != nil {
-		return nil, err
+		return nil, RequestErr
 	}
 
 	return getEverything, nil
+}
+
+func (n *NewsApiClient) GetSources(args []string) (*Response, error) {
+	if len(args) == 0 {
+		return nil, ArgumentErr
+	}
+
+	getSources := &Response{}
+	endpoint := BuildUrl(fmt.Sprintf("%s%s", baseURL, "sources?"), args...)
+	err := n.makeRequest("GET", endpoint, nil, nil, getSources)
+	if err != nil {
+		return nil, RequestErr
+	}
+
+	return getSources, nil
 }

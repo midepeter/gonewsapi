@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-var API_KEY = "45537dd2a5f342879da141829ce12615"
+var API_KEY = ""
 
 type (
 	Error struct {
